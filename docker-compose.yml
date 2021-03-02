@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        set_timezone: "true"
+        tz_data: "America/Chicago"
+    restart: always
+    container_name: core-web
+    volumes:
+      - ./.:/var/www/html
+    ports:
+      - "80:80"
+      - "443:443"
